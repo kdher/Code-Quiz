@@ -1,8 +1,9 @@
-//VARIABLES
-// var body = document.body;
+//   ----  V A R I A B L E S    -----
+
 var header = document.querySelector("header");
 var score = document.getElementById("score");
 var submitButton = document.getElementById("submitButton");
+var clearHighScore = document.getElementById("clearHighScore");
 
 var quizQuestionHeader = document.getElementById("quizQuestionHeader");
 var choice1 = document.getElementById("one");
@@ -198,7 +199,7 @@ function showHighScores() {
   highScoreArray.push(localStorageArray)
   localStorage.setItem("highScore", JSON.stringify(highScoreArray)); // Adds array 
 
-  var highScores = getInitials + ": " + secondsLeft; // add in + getInitials when read it
+  var highScores ="1. "+ getInitials + ": " + secondsLeft; // add in + getInitials when read it
 
   $("#highScoreList").append(highScores) // Appends high score & initials
 }
@@ -226,15 +227,16 @@ initialButton.addEventListener("click", function() {
 // CLEAR HIGH SCORES - WORKS
 clearHighScore.addEventListener("click", function() {
   localStorage.clear();
+  $("#highScoreList").empty(); // clears out container
 })
 
 // GO BACK BUTTON EVENT liSTENER - WORKS 
 goBack.addEventListener("click", function() { // Go back to the home page
-  $("#highScoreList").empty() // clears out container
-  $("#initialInput").val("") // clears out the value in initial input 
-  resetVariables()
+  $("#highScoreList").empty(); // clears out container
+  $("#initialInput").val(""); // clears out the value in initial input 
+  resetVariables();
   codeQuizChallenge();
-  console.log("restart quiz")
+  console.log("restart quiz");
 })
 
 // Page starts at home page 
